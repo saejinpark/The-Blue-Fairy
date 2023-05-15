@@ -1,0 +1,25 @@
+{
+  "name": "the-blue-fairy",
+  "version": "1.0.0",
+  "description": "프로젝트명을 'The Blue Fairy'로 정한 이유는 카를로 콜로디의 소설 '피노키오'에서 등장하는 푸른 요정 캐릭터에서 영감을 받았습니다.\r 소설에서 푸른 요정은 주인공 피노키오에게 착한아이가 되면 인간으로 다시 태어날 수 있는 기회를 주는 존재로 나타나며,이 프로젝트는 지식의 전달자의 뜻에 따라 성실히 따른다면 지식이 온전히 전달될 수 있도록 하는 것이 목표입니다.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "parcel ./index.html",
+    "build": "parcel build ./index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saejinpark/The-Blue-Fairy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saejinpark/The-Blue-Fairy/issues"
+  },
+  "homepage": "https://github.com/saejinpark/The-Blue-Fairy#readme",
+  "devDependencies": {
+    "node-sass": "^8.0.0"
+  }
+}

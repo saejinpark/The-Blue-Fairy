@@ -1,0 +1,73 @@
+@import "config"
+
+main
+  background-color: $background-color
+
+#books
+  height: calc(100vh - 96px)
+  box-sizing: border-box
+  padding-top: 80px 
+  .inner
+    width: 1024px
+    margin: auto
+  .books__li
+    background-color: white
+    display: inline-block
+    text-align: center
+    padding: 20px 40px
+    width: 240px
+    @include border;
+    img
+      object-fit: contain
+      width: 100%
+    dl
+      margin-top: 8px 
+      text-align: left
+      dt
+        font-weight: bold
+        color: gray
+        display: inline-block
+      dd
+        text-align: right
+        font-weight: bold
+        font-size: 24px
+        margin-bottom: 16px
+
+        span[style]
+          margin-left: calc(var(--ml) * 10px)
+#book
+  .inner
+    white-space: nowrap
+  #cover
+    display: inline-block
+    figure
+      height: 100%
+      img
+        height: 100%
+  .page
+    background-color: white
+    height: 100vh
+    display: inline-block
+    position: relative
+    .content
+      position: absolute
+      top: calc(var(--pos-t) * 50px)
+      left: calc(var(--pos-l) * 50px)
+      &--h
+        font-weight: bold
+        h1
+          font-size: 40px
+        h2
+          font-size: 32px
+        h3
+          font-size: 28px
+      &--p
+        font-size: 18px
+      &--ph
+        font-size: 24px 
+        input
+          border: 0
+          font-weight: bold
+
+
+

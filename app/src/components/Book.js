@@ -10,29 +10,34 @@ export default class Book extends Component {
     });
   }
 
-  render() {
+  async render() {
     this.el.id = "book";
     const { id } = history.state;
-    getBookDetails(id);
+    await getBookDetails(id);
     const { book } = bookStore.state;
     this.el.id = "book";
     this.el.innerHTML = `
-      <div class="inner"></div>
+      <div class="inner">
+        <div class="wrapper">
+
+        </div>
+      </div>
     `;
     const cover = new Cover(book).el;
     const inner = this.el.querySelector(".inner");
-    inner.append(cover);
+    const wrapper = this.el.querySelector(".wrapper");
+    wrapper.append(cover);
     const pages = book.pages
       ? book.pages.map((page) => new Page(page).el)
       : null;
     if (pages) {
-      inner.append(...pages);
+      wrapper.append(...pages);
     }
     setTimeout(() => {
-      const CoverWidth = cover.offsetWidth;
-      inner.style.width = `${CoverWidth * 2}px`;
+      const coverWidth = cover.offsetWidth;
+      inner.style.width = `${coverWidth * 2}px`;
       if (pages) {
-        pages.forEach((page) => (page.style.width = CoverWidth + "px"));
+        pages.forEach((page) => (page.style.width = coverWidth + "px"));
       }
     }, 1);
   }

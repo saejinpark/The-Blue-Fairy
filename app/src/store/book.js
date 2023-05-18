@@ -1,10 +1,6 @@
 import { Store } from "../core/Store";
-
+import configStore from "./config";
 const store = new Store({
-  url: "http://localhost:3000",
-  pageLimit: 2,
-  page: 1,
-  pageMax: 1,
   books: [],
   book: {},
   loading: false,
@@ -21,10 +17,7 @@ export const searchBooks = async (page) => {
     store.state.message = "";
   }
   try {
-    const res = await fetch(
-      `${store.state.url}/books?_page=${page}&_limit=${store.state.pageLimit}`
-    );
-
+    const res = await fetch(`${configStore.state.serverUrl}/books`);
     const books = await res.json();
     store.state.books = books;
   } catch (error) {
@@ -36,8 +29,9 @@ export const searchBooks = async (page) => {
 
 export const getBookDetails = async (id) => {
   try {
-    const res = await fetch(`${store.state.url}/books/${id}`);
+    const res = await fetch(`${configStore.state.serverUrl}/books/${id}`);
     store.state.book = await res.json();
+    console.log(store.state.book);
   } catch (error) {
     console.log(error);
   }

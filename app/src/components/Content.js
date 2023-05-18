@@ -12,7 +12,7 @@ export default class Content extends Component {
     this.el.classList.add("content");
     const { id, type, text, pos } = this.props;
     const { x, y } = pos;
-    this.el.setAttribute("style", `--pos-t:${x};--pos-l:${y}`);
+    this.el.setAttribute("style", `left:${x}px;top:${y}px`);
     switch (type) {
       case "h1":
       case "h2":
@@ -36,7 +36,7 @@ export default class Content extends Component {
           .map(
             (word) =>
               `<input type="text" placeholder="${word}" style="width:${
-                word.length * 13
+                word.length * 18
               }px">`
           )
           .join(" ");
